@@ -1,0 +1,153 @@
+ <!--<ion-header>
+
+  <ion-navbar color="dark">
+    <ion-title>Pastelería</ion-title>
+  </ion-navbar>
+  <ion-segment  ng-reflect-model="login" [(ngModel)]="segments" (ionChange)="segmentChanged($event);">
+    <ion-segment-button  class="login" value="login">
+      Login
+    </ion-segment-button>
+    <ion-segment-button  class="register" value="register">
+      Register
+    </ion-segment-button>
+  </ion-segment>
+</ion-header>
+
+
+<ion-content [ngSwitch]="segments" padding>
+  
+  <div *ngSwitchCase="'login'">
+    <form [formGroup]="formLogin" (ngSubmit)="goToRegister();" novalidate>
+      <ion-list>
+        <ion-item>
+          <ion-label floating>Correo</ion-label>
+          <ion-input formControlName="correo" type="text"></ion-input>
+        </ion-item>
+        <ion-item *ngIf="formLogin.get('correo').errors && formLogin.get('correo').dirty">
+          <p color="danger" ion-text *ngIf="formLogin.get('correo').hasError('required')">Digite su correo !</p>
+          <p color="danger" ion-text *ngIf="formLogin.get('correo').hasError('email')">Correo no valido !</p>
+        </ion-item>
+
+        <ion-item>
+          <ion-label floating>Contraseña</ion-label>
+          <ion-input formControlName="password" type="password"></ion-input>
+        </ion-item>
+        <ion-item *ngIf="formLogin.get('password').errors && formLogin.get('password').dirty">
+          <p color="danger" ion-text *ngIf="formLogin.get('password').hasError('required')">Digite su contraseña !</p>
+        </ion-item>
+        <ion-item></ion-item>
+      </ion-list>
+      <ion-grid>
+        <ion-row>
+          <button class="btn-login" [disabled]="formLogin.invalid" ion-button block type="submit">Login</button>
+        </ion-row>
+        <ion-row>
+          <button ion-button class="button_register" (click)="goToRecover();" clear>¿Olvidaste tu cuenta?</button>
+        </ion-row>
+      </ion-grid>
+    </form>
+  </div>
+
+
+  <div *ngSwitchCase="'register'">
+
+    <form [formGroup]="formRegister" (ngSubmit)="guardarUsuario()" novalidate>
+      <ion-list>
+        <ion-item>
+          <ion-label floating>Nombre</ion-label>
+          <ion-input formControlName="name" type="text"></ion-input>
+        </ion-item>
+        <ion-item *ngIf="formRegister.get('name').errors && formRegister.get('name').dirty">
+          <p color="danger" ion-text *ngIf="formRegister.get('name').hasError('required')">Digite su nombre !</p>
+        </ion-item>
+        <ion-item>
+          <ion-label floating>Correo</ion-label>
+          <ion-input (keyup)=" findEmail();" formControlName="email" type="text"></ion-input>
+        </ion-item>
+        <ion-item *ngIf="formRegister.get('email').errors && formRegister.get('email').dirty">
+          <p color="danger" ion-text *ngIf="formRegister.get('email').hasError('required')">Digite su email !</p>
+          <p color="danger" ion-text *ngIf="formRegister.get('email').hasError('email')">Correo no permitido !</p>
+        </ion-item>
+
+
+        <ion-item *ngIf="stateEmail">
+          <p color="danger" ion-text>Este correo esta en uso!</p>
+        </ion-item>
+
+
+        <ion-item>
+          <ion-label floating>Contraseña</ion-label>
+          <ion-input formControlName="password" type="password"></ion-input>
+        </ion-item>
+        <ion-item *ngIf="formRegister.get('password').errors && formRegister.get('password').dirty">
+          <p color="danger" ion-text *ngIf="formRegister.get('password').hasError('required')">Digite su contraseña !</p>
+          <p color="danger" ion-text *ngIf="formRegister.get('password').hasError('pattern')">Contraseña poco segura!</p>
+        </ion-item>
+        <ion-item>
+
+        </ion-item>
+      </ion-list>
+      <ion-grid>
+        <ion-row>
+          <button icon-left class="btn-login" ion-button block type="submit" [disabled]="formRegister.invalid || stateEmail">
+            <ion-icon  name="{{iconSave}}"></ion-icon>
+            Guardar
+          </button>
+        </ion-row>
+        <ion-row>
+        </ion-row>
+      </ion-grid>
+    </form>
+  </div>
+</ion-content>-->
+
+
+<ion-content [ngSwitch]="segments" padding>
+  
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <ion-title class="titulo-login" text-center>Pastelería</ion-title>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col text-center >
+           <img  src="assets/img/cake.png" alt="">
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <div *ngSwitchCase="'login'">
+    <form [formGroup]="formLogin" (ngSubmit)="goToRegister();" novalidate>
+      <ion-list>
+        <ion-item class="item-login">
+          <ion-label floating>Correo</ion-label>
+          <ion-input formControlName="correo" type="text"></ion-input>
+        </ion-item>
+        <ion-item class="item-login" *ngIf="formLogin.get('correo').errors && formLogin.get('correo').dirty">
+          <p color="mensajes" ion-text *ngIf="formLogin.get('correo').hasError('required')">Digite su correo !</p>
+          <p color="mensajes" ion-text *ngIf="formLogin.get('correo').hasError('email')">Correo no valido !</p>
+        </ion-item>
+
+        <ion-item class="item-login">
+          <ion-label floating>Contraseña</ion-label>
+          <ion-input formControlName="password" type="password"></ion-input>
+        </ion-item>
+        <ion-item *ngIf="formLogin.get('password').errors && formLogin.get('password').dirty">
+          <p color="mensajes" ion-text *ngIf="formLogin.get('password').hasError('required')">Digite su contraseña !</p>
+        </ion-item>
+        <ion-item class="item-login"></ion-item>
+      </ion-list>
+      <ion-grid>
+        <ion-row>
+          <button class="btn-login" (click)="irHome()" ion-button block>Login</button>
+        </ion-row>
+        <ion-row>
+          <button ion-button class="button_register" (click)="goToRecover();" clear>¿Olvidaste tu cuenta?</button>
+        </ion-row>
+      </ion-grid>
+    </form>
+  </div>
+
+  
+</ion-content>
+ 

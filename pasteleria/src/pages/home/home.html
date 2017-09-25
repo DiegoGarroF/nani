@@ -1,0 +1,69 @@
+<ion-header>
+  <ion-navbar color="primary">
+   <ion-grid >
+
+      <ion-row>
+        <ion-col>
+          <ion-title>Arco Iris</ion-title>
+        </ion-col>
+      </ion-row>
+      <ion-row class="items-slides">
+        <ion-segment color="secondary" [(ngModel)]="tabs">
+          <ion-segment-button color="primary" (click)="selectTab(0)" value="0">Pasteles</ion-segment-button>
+          <ion-segment-button (click)="selectTab(1)" value="1">Catálogo</ion-segment-button>
+          <ion-segment-button (click)="selectTab(2)" value="2">Precios</ion-segment-button>
+        </ion-segment>
+      </ion-row>
+    </ion-grid>
+  </ion-navbar>
+</ion-header>
+
+<ion-content >
+ <ion-slides #pageSlider (ionSlideWillChange)="changeWillSlide($event)">
+    <ion-slide>
+      <ion-content class="list-contenido">
+        <ion-card *ngFor="let post of _cas.imagenes" class="card-background-page">
+              <img [src]="post.img"/>
+              <div class="card-title">{{post.titulo}}</div>
+              <div class="card-subtitle">2017</div>
+          <ion-card-content >
+            
+            <ion-row>
+                <ion-col (click)="megusta();" >           
+                  <ion-icon name="heart-outline"></ion-icon>
+                    Me gusta        
+                </ion-col>
+                <ion-col (click)="comentar();" >
+                    <ion-icon name="chatboxes"></ion-icon>
+                    Comentar
+                </ion-col>
+                <ion-col >
+                    <ion-icon name="share-alt"></ion-icon>
+                    Compartir
+                </ion-col>
+              </ion-row>
+            </ion-card-content>
+        </ion-card>
+          <ion-fab  bottom right >
+            <button  (click)="mostrarModal()" color="secundary" ion-fab ><ion-icon name="add"></ion-icon></button>
+          </ion-fab>
+               <ion-infinite-scroll [enabled]="existe_registros"  (ionInfinite)="doInfinite($event)">
+   <ion-infinite-scroll-content loadingSpinner="bubbles"></ion-infinite-scroll-content>
+ </ion-infinite-scroll>
+       </ion-content>
+   
+    </ion-slide>
+      <ion-slide>
+        <button ion-button *ngIf="!estadoLogueo" outline (click)="signInWithFacebook()">Login</button>  
+       <button ion-button *ngIf="estadoLogueo" outline (click)="signOut()">Logout</button>
+
+       <h1>{{displayName}}</h1>
+      </ion-slide>
+      <ion-slide>
+        <h1>Hola slide 3</h1>
+      </ion-slide>
+ 
+ </ion-slides>
+
+ 
+</ion-content>

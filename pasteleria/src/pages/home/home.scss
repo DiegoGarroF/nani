@@ -1,0 +1,74 @@
+page-home {
+ion-icon{
+    padding: 3px;
+}
+ion-card {
+    position: relative;
+    text-align: center;
+  }
+
+  .card-title {
+    position: absolute;
+    top: 36%;
+    font-size: 2.0em;
+    width: 100%;
+    font-weight: bold;
+    color: #fff;
+  }
+
+  .card-subtitle {
+    font-size: 1.0em;
+    position: absolute;
+    top: 52%;
+    width: 100%;
+    color: #fff;
+  }
+
+
+  .segment-md .segment-button.activated, .segment-md .segment-button.segment-activated {
+    border-color: D35F5F;
+    color:white;
+    transition: all 0.7s;
+   
+    }
+
+    .segment-md .segment-button {
+        color: #eaf0fb;
+    }
+    .items-slides{
+        margin-top: 20px;
+    }
+    .searchIcono{
+        text-align: right;
+        color: white;
+    }
+    .swiper-pagination {
+        display: none;
+    }
+   .list-contenido{
+position: absolute;
+   }
+ion-icon.seleccionar{
+    color: #8d9396;
+}
+
+.toolbar .segment-md .segment-button.activated, .toolbar .segment-md .segment-button.segment-activated {
+    opacity: 1;
+        border-bottom: 2px solid #171a1b;
+}
+.grid{
+    padding: 0px;
+}.toolbar-md {
+     padding: 0px;
+}
+
+[icon-left] ion-icon, [icon-start] ion-icon {
+    font-size: 1.4em;
+    line-height: .67;
+    pointer-events: none;
+    padding-right: 1.3em;
+}
+  .list-contenido{
+position: absolute;
+   }    
+}
